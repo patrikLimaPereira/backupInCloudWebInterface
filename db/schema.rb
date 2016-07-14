@@ -17,8 +17,28 @@ ActiveRecord::Schema.define(version: 20160712203431) do
   enable_extension "plpgsql"
 
   create_table "backups", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "origin"
+    t.string   "destiny"
+    t.string   "extension"
+    t.boolean  "daily"
+    t.datetime "in_daily_hour_verify"
+    t.boolean  "in_daily_exclude_sunday"
+    t.boolean  "in_daily_exclude_monday"
+    t.boolean  "in_daily_exclude_tuesday"
+    t.boolean  "in_daily_exclude_wednesday"
+    t.boolean  "in_daily_exclude_thursday"
+    t.boolean  "in_daily_exclude_friday"
+    t.boolean  "in_daily_exclude_saturday"
+    t.integer  "in_daily_time_storage"
+    t.boolean  "weekly"
+    t.string   "in_weekly_day_of_the_week"
+    t.integer  "in_weekly_time_storage"
+    t.boolean  "yearly"
+    t.datetime "in_yearly_datetime"
+    t.integer  "in_yearly_time_storage"
+    t.boolean  "active"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "groups", force: :cascade do |t|
